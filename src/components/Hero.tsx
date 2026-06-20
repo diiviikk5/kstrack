@@ -61,10 +61,10 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToDashboard }) => {
           }}
         >
           <span style={{ whiteSpace: 'nowrap' }}>
-            Track <Zap size={24} style={inlineIconStyle} /> Your Trading <LockKeyhole size={24} style={inlineIconStyle} /> Signals
+            Lock <Zap size={24} style={inlineIconStyle} /> Down Your <LockKeyhole size={24} style={inlineIconStyle} /> Passwords
           </span>
           <br />
-          with Ironclad Precision <Fingerprint size={24} style={fingerprintStyle} />
+          with Ironclad Security <Fingerprint size={24} style={fingerprintStyle} />
         </motion.h1>
 
         {/* Animated Subtext */}
@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToDashboard }) => {
           }}
         >
           <span style={{ opacity: 0.8 }}>
-            Zero stress, total control. Real-time Binance tracking, instant status checks, and pro-grade analytics for your non-stop trading.
+            Zero stress, total control. Unbreakable storage, one-tap access, and pro-grade tools for your non-stop world.
           </span>
         </motion.p>
 
@@ -111,7 +111,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToDashboard }) => {
           }}
           onClick={onScrollToDashboard}
         >
-          <span>Launch Dashboard</span>
+          <span>Get It Free</span>
           <ArrowRightCircle size={20} />
         </motion.button>
       </div>

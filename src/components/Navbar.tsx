@@ -23,13 +23,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onScrollToDashboard }) => {
         <a
           href="#"
           className="flex items-center"
-          aria-label="KsTracker home"
+          aria-label="Ironclad home"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
         >
-          <Logo fillColor="var(--color-text)" className="transition-opacity hover:opacity-85" />
+          <Logo fillColor="#192837" className="transition-opacity hover:opacity-70" />
         </a>
 
         {/* Center: Desktop Nav */}
@@ -42,7 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onScrollToDashboard }) => {
               style={{ color: 'var(--color-text)' }}
               onClick={(e) => {
                 e.preventDefault();
-                if (link === 'Signals' && onScrollToDashboard) {
+                if (onScrollToDashboard) {
                   onScrollToDashboard();
                 }
               }}
@@ -60,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onScrollToDashboard }) => {
             style={{ backgroundColor: '#7342E2' }}
             onClick={onScrollToDashboard}
           >
-            Launch App
+            Start For Free
           </button>
           <button
             type="button"

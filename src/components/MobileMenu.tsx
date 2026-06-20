@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Logo } from './Logo';
 
-export const NAV_LINKS = ['Signals', 'Binance Price', 'Stats', 'Documentation', 'Support'] as const;
+export const NAV_LINKS = ['Vault', 'Plans', 'Install', 'News', 'Help'] as const;
 
 interface MobileMenuProps {
   open: boolean;
@@ -97,7 +97,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ open, onClose, onScrollT
                   onClick={(e) => {
                     e.preventDefault();
                     onClose();
-                    if (link === 'Signals' && onScrollToDashboard) {
+                    if (onScrollToDashboard) {
                       onScrollToDashboard();
                     }
                   }}
@@ -123,7 +123,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ open, onClose, onScrollT
                   if (onScrollToDashboard) onScrollToDashboard();
                 }}
               >
-                Launch App
+                Start For Free
               </button>
               <button
                 type="button"
