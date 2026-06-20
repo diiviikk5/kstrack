@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
-import { MobileMenu, NAV_LINKS } from './MobileMenu';
+import { MobileMenu } from './MobileMenu';
+import { NAV_LINKS } from '../constants';
 
 interface NavbarProps {
   onScrollToDashboard?: () => void;

@@ -26,7 +26,7 @@ function App() {
         loop
         playsInline
         className="absolute inset-0 z-0 w-full h-full object-cover pointer-events-none"
-        src="/assets/hf_20260606_131516_eca35265-ea66-4fbd-8d52-22aae6e1a503.mp4"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzzbokvigwjottwixh07lwa1p/hf_20260606_131516_eca35265-ea66-4fbd-8d52-22aae6e1a503.mp4"
       />
 
       {/* Backdrop Tint */}

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { Logo } from './Logo';
 
-export const NAV_LINKS = ['Vault', 'Plans', 'Install', 'News', 'Help'] as const;
+import { NAV_LINKS } from '../constants';
 
 interface MobileMenuProps {
   open: boolean;
