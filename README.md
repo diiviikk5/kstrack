@@ -6,7 +6,7 @@ It adapts a premium landing page experience featuring background video loop loop
 
 ---
 
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework:** React 18 (`react` + `react-dom` `^18.3.1`)
@@ -23,7 +23,7 @@ It adapts a premium landing page experience featuring background video loop loop
 
 ---
 
-## 📦 Features & "Beyond CRUD" Enhancements
+##  Features & "Beyond CRUD" Enhancements
 
 1. **Local Database Fallback:** The backend checks for Firebase credentials (`firebase-service-account.json` or `.env` configuration). If not found, it **gracefully falls back to a local JSON database** (`server/db.json`). This ensures zero-setup execution out of the box for evaluators while preserving full cloud database capabilities.
 2. **Automated Risk Resolution Loop:** The backend runs a polling task every 15 seconds that fetches live tickers from Binance. It checks all active (`OPEN`) signals:
@@ -41,7 +41,7 @@ It adapts a premium landing page experience featuring background video loop loop
 
 ---
 
-## 💾 Database Schema
+## Database Schema
 
 Each trading signal record contains:
 | Field | Type | Description |
@@ -60,7 +60,7 @@ Each trading signal record contains:
 
 ---
 
-## 🛠️ Installation & Running
+##  Installation & Running
 
 ### Prerequisites
 Make sure you have [Node.js](https://nodejs.org) (v18 or higher) installed.
@@ -109,7 +109,7 @@ npm run dev
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
