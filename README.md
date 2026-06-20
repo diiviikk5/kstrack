@@ -2,7 +2,7 @@
 
 KsTracker is a high-performance, full-stack trading signal tracking application with real-time Binance price integration, automated boundary risk resolution, and a beautiful modern user interface.
 
-It adapts a premium landing page experience featuring background video loop loops, custom typography, micro-interactions, and a powerful operations console.
+It adapts a premium landing page experience featuring background video loops, custom typography, micro-interactions, and a matching, fully aligned Operations Control Terminal.
 
 ---
 
@@ -14,6 +14,7 @@ It adapts a premium landing page experience featuring background video loop loop
 - **Styling:** Tailwind CSS 3 (`^3.4.17`) + Custom HSL design variables
 - **Animations:** Framer Motion (`^11.18.2`)
 - **Icons:** Lucide React (`^0.468.0`)
+- **Aura Cinematic Theme:** Full-viewport background video, tech grid guide lines, SVG noise filters, and shiny gradient animations.
 
 ### Backend
 - **Framework:** Node.js Express server (`^4.21.2`)
@@ -23,9 +24,9 @@ It adapts a premium landing page experience featuring background video loop loop
 
 ---
 
-##  Features & "Beyond CRUD" Enhancements
+## Features and Enhancements
 
-1. **Local Database Fallback:** The backend checks for Firebase credentials (`firebase-service-account.json` or `.env` configuration). If not found, it **gracefully falls back to a local JSON database** (`server/db.json`). This ensures zero-setup execution out of the box for evaluators while preserving full cloud database capabilities.
+1. **Local Database Fallback:** The backend checks for Firebase credentials (`firebase-service-account.json` or `.env` configuration). If not found, it automatically falls back to a local JSON database (`server/db.json`). This ensures zero-setup execution out of the box for evaluators while preserving full cloud database capabilities.
 2. **Automated Risk Resolution Loop:** The backend runs a polling task every 15 seconds that fetches live tickers from Binance. It checks all active (`OPEN`) signals:
    - **BUY Signals:** Resolves to `TARGET_HIT` if `livePrice >= target` or `STOPLOSS_HIT` if `livePrice <= stopLoss`.
    - **SELL Signals:** Resolves to `TARGET_HIT` if `livePrice <= target` or `STOPLOSS_HIT` if `livePrice >= stopLoss`.
@@ -38,6 +39,11 @@ It adapts a premium landing page experience featuring background video loop loop
    - Expiry time must be after entry time.
    - Entry time cannot be in the past (includes clock drift threshold).
    - Validates that the trading pair symbol is a valid asset pair on Binance before storing.
+5. **Unified Theme Architecture:** Both the main Landing Page and the Operations Terminal (`DashboardPage.tsx`) use the dark cinematic aesthetic:
+   - Localized background video assets (avoiding 403 CloudFront timeouts).
+   - Tech grid guide lines and SVG noise filters (`c3-noise`).
+   - Liquid-glass container treatments (`.liquid-glass` mask overlays).
+   - Clear input text readability on dark backdrops.
 
 ---
 
@@ -60,7 +66,7 @@ Each trading signal record contains:
 
 ---
 
-##  Installation & Running
+## Installation and Running
 
 ### Prerequisites
 Make sure you have [Node.js](https://nodejs.org) (v18 or higher) installed.
@@ -109,7 +115,7 @@ npm run dev
 
 ---
 
-##  API Endpoints
+## API Endpoints
 
 | Method | Endpoint | Description |
 |---|---|---|
