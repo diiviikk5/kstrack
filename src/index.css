@@ -4,33 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-heading: 'Helvetica Now Display Bold', 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --color-text: #192837;
-  --color-accent: #7342E2;
-  --color-login-bg: #F2F2EE;
-}
-
-* {
-  box-sizing: border-box;
+html,
+body,
+#root {
+  height: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-body);
-  color: var(--color-text);
-  background-color: var(--color-login-bg);
-  overflow-x: hidden;
+  background: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 
-/* Scrollbar customizations */
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -38,10 +29,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(25, 40, 55, 0.2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(25, 40, 55, 0.3);
+  background: #5E0ED7;
+  border-radius: 3px;
 }

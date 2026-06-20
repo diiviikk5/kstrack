@@ -1,1 +1,1 @@
-export const NAV_LINKS = ['Vault', 'Plans', 'Install', 'News', 'Help'] as const;
+export const NAV_LINKS = ['Home', 'Signals', 'Terminal', 'Support'] as const;

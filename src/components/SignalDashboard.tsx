@@ -216,7 +216,7 @@ export const SignalDashboard: React.FC = () => {
 
         <div className="flex items-center gap-3 self-end sm:self-center">
           <span className="text-xs opacity-75 font-mono">
-            Auto-refresh in <strong className="text-[#7342E2]">{countdown}s</strong>
+            Auto-refresh in <strong className="text-accent">{countdown}s</strong>
           </span>
           <button
             onClick={refreshData}
@@ -231,7 +231,7 @@ export const SignalDashboard: React.FC = () => {
 
       {loading ? (
         <div className="py-20 flex flex-col items-center justify-center gap-3">
-          <RefreshCw className="animate-spin text-[#7342E2]" size={36} />
+          <RefreshCw className="animate-spin text-accent" size={36} />
           <span className="text-sm opacity-60">Synchronizing market data...</span>
         </div>
       ) : signals.length === 0 ? (

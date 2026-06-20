@@ -125,8 +125,8 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
   return (
     <div className="w-full max-w-lg bg-white/10 backdrop-blur-xl border border-white/20 p-6 sm:p-8 rounded-3xl shadow-2xl">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 bg-[#7342E2]/20 rounded-xl">
-          <Zap className="text-[#7342E2]" size={24} />
+        <div className="p-2 bg-accent/20 rounded-xl">
+          <Zap className="text-accent" size={24} />
         </div>
         <h2 className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
           Create Trading Signal
@@ -145,7 +145,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
               placeholder="e.g. BTCUSDT"
               value={symbol}
               onChange={(e) => setSymbol(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-[#7342E2] transition-colors placeholder:opacity-50"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors placeholder:opacity-50"
               style={{ color: 'var(--color-text)' }}
               disabled={loading}
             />
@@ -197,7 +197,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
             placeholder="0.00000"
             value={entryPrice}
             onChange={(e) => setEntryPrice(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-[#7342E2] transition-colors placeholder:opacity-50"
+            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors placeholder:opacity-50"
             style={{ color: 'var(--color-text)' }}
             disabled={loading}
           />
@@ -248,7 +248,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
               type="datetime-local"
               value={entryTime}
               onChange={(e) => setEntryTime(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-[#7342E2] transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors"
               style={{ color: 'var(--color-text)' }}
               disabled={loading}
             />
@@ -262,7 +262,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
               type="datetime-local"
               value={expiryTime}
               onChange={(e) => setExpiryTime(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-[#7342E2] transition-colors"
+              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors"
               style={{ color: 'var(--color-text)' }}
               disabled={loading}
             />
@@ -288,7 +288,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
         {/* Submit button */}
         <button
           type="submit"
-          className="w-full py-4 rounded-xl font-semibold text-white bg-[#7342E2] shadow-lg shadow-[#7342E2]/20 hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none cursor-pointer mt-2 text-sm"
+          className="w-full py-4 rounded-xl font-semibold text-white bg-accent shadow-lg shadow-accent/20 hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none cursor-pointer mt-2 text-sm"
           disabled={loading}
         >
           {loading ? 'Validating & Storing...' : 'Broadcast Trading Signal'}
