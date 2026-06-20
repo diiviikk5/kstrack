@@ -202,21 +202,21 @@ export const SignalDashboard: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 p-6 sm:p-8 rounded-3xl shadow-2xl overflow-hidden flex flex-col gap-6">
+    <div className="w-full liquid-glass p-6 sm:p-8 rounded-[32px] shadow-2xl overflow-hidden flex flex-col gap-6 text-white relative z-10">
       {/* Header controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
+          <h2 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
             Broadcasting Signals
           </h2>
-          <p className="text-xs sm:text-sm opacity-60 mt-1">
+          <p className="text-xs sm:text-sm text-white/50 mt-1">
             Verifying bounds and resolving status against live Binance spot pricing.
           </p>
         </div>
 
         <div className="flex items-center gap-3 self-end sm:self-center">
-          <span className="text-xs opacity-75 font-mono">
-            Auto-refresh in <strong className="text-accent">{countdown}s</strong>
+          <span className="text-xs text-white/70 font-mono">
+            Auto-refresh in <strong className="text-cyan-400 font-bold">{countdown}s</strong>
           </span>
           <button
             onClick={refreshData}
@@ -231,8 +231,8 @@ export const SignalDashboard: React.FC = () => {
 
       {loading ? (
         <div className="py-20 flex flex-col items-center justify-center gap-3">
-          <RefreshCw className="animate-spin text-accent" size={36} />
-          <span className="text-sm opacity-60">Synchronizing market data...</span>
+          <RefreshCw className="animate-spin text-cyan-400" size={36} />
+          <span className="text-sm text-white/50">Synchronizing market data...</span>
         </div>
       ) : signals.length === 0 ? (
         <div className="py-16 text-center border border-dashed border-white/15 rounded-2xl">

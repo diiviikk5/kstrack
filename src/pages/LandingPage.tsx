@@ -6,11 +6,10 @@ import { InboxMockup } from '../components/InboxMockup';
 import { FeatureTriage } from '../components/FeatureTriage';
 import { LogoCloud } from '../components/LogoCloud';
 import { Testimonials } from '../components/Testimonials';
-import { Pricing } from '../components/Pricing';
 import { FinalCTA } from '../components/FinalCTA';
 
 const VIDEO_URL =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzzbokvigwjottwixh07lwa1p/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4';
+  '/assets/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4';
 
 interface LandingPageProps {
   onNavigateToDashboard: () => void;
@@ -59,7 +58,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToDashboard 
           <FeatureTriage />
           <LogoCloud />
           <Testimonials />
-          <Pricing />
           <FinalCTA onNavigateToDashboard={onNavigateToDashboard} />
         </main>
       </div>

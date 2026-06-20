@@ -123,12 +123,12 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
   };
 
   return (
-    <div className="w-full max-w-lg bg-white/10 backdrop-blur-xl border border-white/20 p-6 sm:p-8 rounded-3xl shadow-2xl">
+    <div className="w-full max-w-lg liquid-glass p-6 sm:p-8 rounded-[32px] shadow-2xl relative z-10 text-white">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-2 bg-accent/20 rounded-xl">
-          <Zap className="text-accent" size={24} />
+        <div className="p-2 bg-cyan-500/10 border border-cyan-500/20 rounded-xl">
+          <Zap className="text-cyan-400" size={24} />
         </div>
-        <h2 className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--color-text)' }}>
+        <h2 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
           Create Trading Signal
         </h2>
       </div>
@@ -137,7 +137,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
         {/* Symbol & Direction */}
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider opacity-70">
+            <label className="text-xs font-semibold uppercase tracking-wider text-white/50">
               Trading Pair
             </label>
             <input
@@ -145,25 +145,23 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
               placeholder="e.g. BTCUSDT"
               value={symbol}
               onChange={(e) => setSymbol(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors placeholder:opacity-50"
-              style={{ color: 'var(--color-text)' }}
+              className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:opacity-40 text-white"
               disabled={loading}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider opacity-70">
+            <label className="text-xs font-semibold uppercase tracking-wider text-white/50">
               Direction
             </label>
-            <div className="grid grid-cols-2 bg-white/5 border border-white/10 p-1 rounded-xl">
+            <div className="grid grid-cols-2 bg-black/40 border border-white/10 p-1 rounded-xl">
               <button
                 type="button"
                 className={`py-2 rounded-lg text-xs font-bold transition-all ${
                   direction === 'BUY'
                     ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/20'
-                    : 'opacity-60 hover:opacity-100'
+                    : 'text-white/60 hover:text-white'
                 }`}
-                style={{ color: direction === 'BUY' ? '#ffffff' : 'var(--color-text)' }}
                 onClick={() => setDirection('BUY')}
                 disabled={loading}
               >
@@ -174,9 +172,8 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
                 className={`py-2 rounded-lg text-xs font-bold transition-all ${
                   direction === 'SELL'
                     ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/20'
-                    : 'opacity-60 hover:opacity-100'
+                    : 'text-white/60 hover:text-white'
                 }`}
-                style={{ color: direction === 'SELL' ? '#ffffff' : 'var(--color-text)' }}
                 onClick={() => setDirection('SELL')}
                 disabled={loading}
               >
@@ -188,7 +185,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
 
         {/* Entry Price */}
         <div className="flex flex-col gap-1.5">
-          <label className="text-xs font-semibold uppercase tracking-wider opacity-70">
+          <label className="text-xs font-semibold uppercase tracking-wider text-white/50">
             Entry Price
           </label>
           <input
@@ -197,8 +194,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
             placeholder="0.00000"
             value={entryPrice}
             onChange={(e) => setEntryPrice(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors placeholder:opacity-50"
-            style={{ color: 'var(--color-text)' }}
+            className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-cyan-400 transition-colors placeholder:opacity-40 text-white"
             disabled={loading}
           />
         </div>
@@ -206,7 +202,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
         {/* Target & Stop Loss */}
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider opacity-70 text-emerald-400">
+            <label className="text-xs font-semibold uppercase tracking-wider text-white/50 text-emerald-400">
               Target Price
             </label>
             <input
@@ -215,14 +211,13 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
               placeholder="0.00000"
               value={targetPrice}
               onChange={(e) => setTargetPrice(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-emerald-500 transition-colors placeholder:opacity-50"
-              style={{ color: 'var(--color-text)' }}
+              className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-emerald-500 transition-colors placeholder:opacity-40 text-white"
               disabled={loading}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider opacity-70 text-rose-400">
+            <label className="text-xs font-semibold uppercase tracking-wider text-white/50 text-rose-400">
               Stop Loss
             </label>
             <input
@@ -231,8 +226,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
               placeholder="0.00000"
               value={stopLoss}
               onChange={(e) => setStopLoss(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-rose-500 transition-colors placeholder:opacity-50"
-              style={{ color: 'var(--color-text)' }}
+              className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-rose-500 transition-colors placeholder:opacity-40 text-white"
               disabled={loading}
             />
           </div>
@@ -241,29 +235,27 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
         {/* Entry & Expiry Times */}
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider opacity-70">
+            <label className="text-xs font-semibold uppercase tracking-wider text-white/50">
               Entry Time
             </label>
             <input
               type="datetime-local"
               value={entryTime}
               onChange={(e) => setEntryTime(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors"
-              style={{ color: 'var(--color-text)' }}
+              className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-cyan-400 transition-colors text-white scheme-dark"
               disabled={loading}
             />
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label className="text-xs font-semibold uppercase tracking-wider opacity-70">
+            <label className="text-xs font-semibold uppercase tracking-wider text-white/50">
               Expiry Time
             </label>
             <input
               type="datetime-local"
               value={expiryTime}
               onChange={(e) => setExpiryTime(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm focus:outline-none focus:border-accent transition-colors"
-              style={{ color: 'var(--color-text)' }}
+              className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-sm focus:outline-none focus:border-cyan-400 transition-colors text-white scheme-dark"
               disabled={loading}
             />
           </div>
@@ -271,7 +263,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
 
         {/* Error Notification */}
         {error && (
-          <div className="flex items-start gap-2.5 p-3.5 bg-rose-500/20 border border-rose-500/30 rounded-xl text-rose-200 text-xs">
+          <div className="flex items-start gap-2.5 p-3.5 bg-rose-500/10 border border-rose-500/20 rounded-xl text-rose-200 text-xs">
             <AlertTriangle size={16} className="shrink-0 mt-0.5" />
             <span>{error}</span>
           </div>
@@ -279,7 +271,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
 
         {/* Success Notification */}
         {success && (
-          <div className="flex items-start gap-2.5 p-3.5 bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-emerald-200 text-xs">
+          <div className="flex items-start gap-2.5 p-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-200 text-xs">
             <CheckCircle size={16} className="shrink-0 mt-0.5" />
             <span>{success}</span>
           </div>
@@ -288,7 +280,7 @@ export const SignalForm: React.FC<SignalFormProps> = ({ onSignalCreated }) => {
         {/* Submit button */}
         <button
           type="submit"
-          className="w-full py-4 rounded-xl font-semibold text-white bg-accent shadow-lg shadow-accent/20 hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none cursor-pointer mt-2 text-sm"
+          className="w-full py-4 rounded-xl font-semibold text-black bg-white hover:bg-zinc-200 active:scale-[0.98] transition-all disabled:opacity-50 disabled:pointer-events-none cursor-pointer mt-2 text-sm"
           disabled={loading}
         >
           {loading ? 'Validating & Storing...' : 'Broadcast Trading Signal'}
