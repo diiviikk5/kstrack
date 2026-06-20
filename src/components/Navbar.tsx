@@ -1,105 +1,65 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Logo } from './Logo';
-import { MobileMenu } from './MobileMenu';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Menu } from 'lucide-react';
+import { LogoMark } from './LogoMark';
+import { AppleButton } from './AppleButton';
 import { NAV_LINKS } from '../constants';
 
 interface NavbarProps {
-  onScrollToDashboard?: () => void;
+  onNavigateToDashboard: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onScrollToDashboard }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+export const Navbar: React.FC<NavbarProps> = ({ onNavigateToDashboard }) => {
   return (
-    <>
-      <header
-        className="relative z-10 flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5"
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-        }}
-      >
-        {/* Left: Logo */}
-        <a
-          href="#"
-          className="flex items-center"
-          aria-label="Ironclad home"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
-        >
-          <Logo fillColor="#192837" className="transition-opacity hover:opacity-70" />
+    <motion.nav
+      className="relative z-20"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
+      <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Left: LogoMark only */}
+        <a href="#" aria-label="KsTracker home" onClick={(e) => { e.preventDefault(); window.location.reload(); }}>
+          <LogoMark className="w-8 h-8 hover:opacity-80 transition-opacity" />
         </a>
 
-        {/* Center: Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(link => (
-            <a
+        {/* Center: Desktop Links */}
+        <div className="hidden md:flex gap-8">
+          {NAV_LINKS.map((link, i) => (
+            <motion.a
               key={link}
-              href="#"
-              className="text-sm font-medium transition-opacity hover:opacity-70"
-              style={{ color: 'var(--color-text)' }}
+              href={`#${link.toLowerCase()}`}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.05, ease: 'easeOut' }}
+              className="text-white/70 text-sm font-medium hover:text-white transition-colors uppercase tracking-wider"
               onClick={(e) => {
                 e.preventDefault();
-                if (onScrollToDashboard) {
-                  onScrollToDashboard();
+                if (link === 'Terminal') {
+                  onNavigateToDashboard();
                 }
               }}
             >
               {link}
-            </a>
+            </motion.a>
           ))}
-        </nav>
+        </div>
 
-        {/* Right: Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <button
-            type="button"
-            className="text-sm font-semibold px-5 py-2.5 rounded-full text-white transition-all hover:shadow-lg active:scale-95 cursor-pointer"
-            style={{ backgroundColor: '#7342E2' }}
-            onClick={onScrollToDashboard}
-          >
-            Start For Free
-          </button>
-          <button
-            type="button"
-            className="text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg active:scale-95 cursor-pointer"
-            style={{
-              backgroundColor: '#F2F2EE',
-              color: 'var(--color-text)',
-            }}
-          >
-            Sign In
-          </button>
+        {/* Right: Desktop CTA */}
+        <div className="hidden md:block">
+          <AppleButton label="Launch Terminal" onClick={onNavigateToDashboard} />
         </div>
 
         {/* Mobile menu trigger */}
         <button
           type="button"
-          className="md:hidden flex items-center justify-center"
-          style={{
-            color: 'var(--color-text)',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer',
-          }}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
+          onClick={onNavigateToDashboard}
+          className="md:hidden w-10 h-10 rounded-full border border-white/10 bg-white/5 inline-flex items-center justify-center cursor-pointer hover:bg-white/10 active:scale-95 transition-all"
+          aria-label="Open terminal"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          <Menu className="w-4 h-4 text-white" />
         </button>
-      </header>
-
-      {/* Slide-in Mobile Drawer */}
-      <MobileMenu
-        open={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        onScrollToDashboard={onScrollToDashboard}
-      />
-    </>
+      </div>
+    </motion.nav>
   );
 };

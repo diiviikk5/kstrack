@@ -1,120 +1,62 @@
-import React from 'react';
-import { motion, type Variants } from 'framer-motion';
-import { ArrowRightCircle, Zap, LockKeyhole, Fingerprint } from 'lucide-react';
+import React, { type CSSProperties } from 'react';
+import { motion } from 'framer-motion';
+import { AppleButton } from './AppleButton';
 
-interface HeroProps {
-  onScrollToDashboard: () => void;
-}
+const EASE = [0.22, 1, 0.36, 1];
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 28 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-  }),
+const gradientStyle: CSSProperties = {
+  backgroundImage:
+    'linear-gradient(to right, #091020 0%, #0B2551 12.5%, #A4F4FD 32.5%, #00d2ff 50%, #0B2551 67.5%, #091020 87.5%, #091020 100%)',
+  backgroundSize: '200% auto',
+  WebkitBackgroundClip: 'text',
+  backgroundClip: 'text',
+  color: 'transparent',
+  WebkitTextFillColor: 'transparent',
+  filter: 'url(#c3-noise)',
 };
 
-export const Hero: React.FC<HeroProps> = ({ onScrollToDashboard }) => {
-  const inlineIconStyle: React.CSSProperties = {
-    color: '#192837',
-    display: 'inline',
-    verticalAlign: 'middle',
-    position: 'relative',
-    top: -2,
-    margin: '0 4px',
-  };
+interface HeroProps {
+  onNavigateToDashboard: () => void;
+}
 
-  const fingerprintStyle: React.CSSProperties = {
-    ...inlineIconStyle,
-    margin: 0,
-    marginLeft: 6,
-  };
-
+export const Hero: React.FC<HeroProps> = ({ onNavigateToDashboard }) => {
   return (
-    <section
-      className="relative z-10 mx-auto"
-      style={{
-        maxWidth: 1280,
-        paddingTop: 'clamp(40px, 8vw, 72px)',
-        paddingBottom: 48,
-      }}
-    >
-      <div
-        className="mx-auto flex flex-col items-center px-5"
-        style={{ maxWidth: 660 }}
+    <section className="pt-16 md:pt-28 pb-20 text-center flex flex-col items-center px-6 relative z-10">
+      {/* Title */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3, ease: EASE }}
+        className="text-4xl md:text-7xl font-semibold tracking-tight leading-[1.05]"
       >
-        {/* Animated Heading */}
-        <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          style={{
-            fontFamily: 'var(--font-heading)',
-            fontSize: 'clamp(1.65rem, 5vw, 3rem)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.01em',
-            color: 'var(--color-text)',
-            textAlign: 'center',
-            margin: 0,
-          }}
-        >
-          <span style={{ whiteSpace: 'nowrap' }}>
-            Lock <Zap size={24} style={inlineIconStyle} /> Down Your <LockKeyhole size={24} style={inlineIconStyle} /> Passwords
-          </span>
-          <br />
-          with Ironclad Security <Fingerprint size={24} style={fingerprintStyle} />
-        </motion.h1>
+        <span className="block text-white">Your trading.</span>
+        <span className="block animate-shiny" style={gradientStyle}>
+          Revitalized
+        </span>
+      </motion.h1>
 
-        {/* Animated Subtext */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
-            color: 'var(--color-text)',
-            maxWidth: 560,
-            lineHeight: 1.65,
-            textAlign: 'center',
-            margin: '20px auto 0',
-          }}
-        >
-          <span style={{ opacity: 0.8 }}>
-            Zero stress, total control. Unbreakable storage, one-tap access, and pro-grade tools for your non-stop world.
-          </span>
-        </motion.p>
+      {/* Paragraph */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: EASE }}
+        className="mt-8 text-white/60 max-w-md text-base leading-[1.5] text-center"
+      >
+        KsTracker is the premier trading signal terminal for the current era. It leverages powerful Binance integrations to monitor, resolve, and refine your signals into total profit clarity.
+      </motion.p>
 
-        {/* Animated CTA Button */}
-        <motion.button
-          type="button"
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={2}
-          whileHover={{ scale: 1.04, filter: 'brightness(1.1)' }}
-          whileTap={{ scale: 0.96 }}
-          className="flex items-center justify-between text-white font-semibold cursor-pointer"
-          style={{
-            borderRadius: 50,
-            backgroundColor: '#7342E2',
-            fontSize: 'clamp(0.9rem, 2vw, 1rem)',
-            padding: '17px 24px',
-            minWidth: 210,
-            boxShadow: '0 4px 24px rgba(115,66,226,0.28)',
-            gap: 32,
-            border: 'none',
-            marginTop: 32,
-          }}
-          onClick={onScrollToDashboard}
-        >
-          <span>Get It Free</span>
-          <ArrowRightCircle size={20} />
-        </motion.button>
-      </div>
+      {/* CTA Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.7, ease: EASE }}
+        className="mt-10 flex flex-col items-center gap-3"
+      >
+        <AppleButton label="Launch Operations Terminal" onClick={onNavigateToDashboard} />
+        <span className="text-xs text-white/40 uppercase tracking-widest">
+          Integrated Live with Binance Spot Pricing
+        </span>
+      </motion.div>
     </section>
   );
 };
