@@ -2,18 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import admin from 'firebase-admin';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
-const __dirname = path.resolve();
-const LOCAL_DB_PATH = path.join(__dirname, 'server', 'db.json');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const LOCAL_DB_PATH = path.join(__dirname, 'db.json');
 
 // Initialize Firebase Admin if configuration is available
 let firestore = null;
 let useFirebase = false;
 
 // Check for service account file or ENV variables
-const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH || path.join(__dirname, 'server', 'firebase-service-account.json');
+const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH || path.join(__dirname, 'firebase-service-account.json');
 
 if (fs.existsSync(serviceAccountPath)) {
   try {
