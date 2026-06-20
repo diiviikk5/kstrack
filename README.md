@@ -1,3 +1,7 @@
+<img width="1686" height="900" alt="image" src="https://github.com/user-attachments/assets/8f6bc9de-544e-49f2-a0f7-0e90c790bde3" />
+
+
+
 # KsTracker — Live Trading Signal Tracking Application
 
 KsTracker is a high-performance, full-stack trading signal tracking application with real-time Binance price integration, automated boundary risk resolution, and a beautiful modern user interface.
